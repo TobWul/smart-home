@@ -1,0 +1,15 @@
+@import "./reset.scss";
+@import "./tokens.scss";
+
+html {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: $color-text-primary;
+  background: $neutral-900;
+  height: 100vh;
+}
+
+body {
+  background: $background-gradient;
+  height: 100%;
+}

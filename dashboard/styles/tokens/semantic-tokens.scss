@@ -1,0 +1,30 @@
+$background-gradient: linear-gradient(135deg, $neutral-800, $neutral-900);
+$background-gradient-darker: linear-gradient(
+  135deg,
+  $neutral-900,
+  $neutral-950
+);
+
+$color-stroke-primary: $neutral-600;
+$color-surface-1-default: $neutral-900;
+$color-surface-2-default: $neutral-800;
+$color-surface-3-default: $neutral-700;
+$color-surface-4-default: $neutral-600;
+
+$color-text-accent: $heat;
+$color-text-inverse: $neutral-900;
+$color-text-primary: $neutral-50;
+$color-text-secondary: $neutral-200;
+$color-text-tertiary: $neutral-400;
+/* number */
+$border-radius-default: 0.25rem;
+$border-radius-lg: 1.5rem;
+$border-radius-full: 624.9375rem;
+/* string */
+$font-font-family-data: Chathura;
+
+$color-background-default: $neutral-950;
+$color-background-lighter: $neutral-900;
+
+$color-shadow-highlight: #ffffff59;
+$color-shadow-shadow: #312e2926;

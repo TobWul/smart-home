@@ -1,0 +1,24 @@
+@import "@/styles/tokens.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface-1-default);
+  border-radius: var(--rounded-default);
+}
+
+.forecast {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.weatherIcon {
+}
+
+.date {
+}
