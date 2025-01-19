@@ -1,0 +1,14 @@
+.today {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+  }
+  span {
+    font-size: 1.25rem;
+  }
+}

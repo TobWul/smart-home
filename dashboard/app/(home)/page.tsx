@@ -1,13 +1,17 @@
+"use client";
 import React from "react";
 import styles from "./home.module.scss";
-import { Screen } from "@/components/Screen";
-import { DeviceController } from "@/components/DeviceController";
+import { Screen } from "@/ui/Screen";
+import { DeviceController } from "@/ui/DeviceController";
+import { HomeAssistantContextProvider } from "@/context/HomeAssitantContext";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className={styles.page}>
       <Screen />
-      <DeviceController />
+      <HomeAssistantContextProvider>
+        <DeviceController />
+      </HomeAssistantContextProvider>
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import { Entity } from "./entity";
+import { Device } from "./device";
 
 export type AreaType = {
   name: string;
-  temperatureSensor?: Entity;
-  targetTemperature?: Entity;
-  heaters: Entity[];
-  lights: Entity[];
+  temperatureSensor?: Device;
+  targetTemperature?: Device;
+  heaters: Device[];
+  lights: Device[];
 };

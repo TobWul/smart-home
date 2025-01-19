@@ -1,0 +1,33 @@
+$buttonSize: 48px;
+
+.wrapper {
+  $gap: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: $gap;
+  padding: $gap;
+  background: var(--neutral-950);
+  border-radius: var(--border-radius-default);
+  margin-top: 1rem;
+}
+
+.button {
+  background: var(--clickable-surface-default);
+  height: $buttonSize;
+  width: $buttonSize;
+  border: 0;
+  border-radius: var(--border-radius-default);
+  cursor: pointer;
+
+  &:not(.pressed) {
+    box-shadow:
+      inset 1px 1px 1px 0px #3b3e43,
+      inset -0.2px -0.2px 4px 0px rgba(59, 62, 67, 0.25),
+      0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &.pressed {
+    background: var(--clickable-surface-pressed);
+    box-shadow: inset 4px 4px 4px 1px rgba(0, 0, 0, 0.13);
+  }
+}

@@ -19,9 +19,9 @@ export const areasDefinition = [
     targetTemperature: undefined,
     heaters: [],
     lights: [
-      "light.color_temperature_light_3",
-      "light.color_temperature_light_2",
-      "light.color_temperature_light_1_2",
+      "light.kjokken_light_1_light_3",
+      "light.kjokken_light_2_light",
+      "light.kjokken_light_3_light_2",
     ],
   },
   {

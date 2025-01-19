@@ -1,0 +1,63 @@
+:root {
+  /* Global tokens */
+  --sans-serif: "Alumni Sans", serif;
+  --heat: #cc6246;
+  --light: #d2ad2c;
+  --neutral-100: #e2e5ea;
+  --neutral-200: #c1c4c9;
+  --neutral-300: #9fa4ad;
+  --neutral-400: #81889a;
+  --neutral-50: #f6f8fe;
+  --neutral-500: #646b76;
+  --neutral-600: #505357;
+  --neutral-700: #33353a;
+  --neutral-800: #1f2125;
+  --neutral-850: #1a1c20;
+  --neutral-900: #101214;
+  --neutral-950: #010202;
+
+  /* Semantic tokens */
+  --background-gradient: linear-gradient(
+    135deg,
+    var(--neutral-800),
+    var(--neutral-900)
+  );
+  --background-gradient-darker: linear-gradient(
+    135deg,
+    var(--neutral-900),
+    var(--neutral-950)
+  );
+
+  --color-stroke-primary: var(--neutral-600);
+  --color-surface-1-default: var(--neutral-900);
+  --color-surface-2-default: var(--neutral-800);
+  --color-surface-3-default: var(--neutral-700);
+  --color-surface-4-default: var(--neutral-600);
+
+  --color-text-accent: var(--heat);
+  --color-text-inverse: var(--neutral-900);
+  --color-text-primary: var(--neutral-50);
+  --color-text-secondary: var(--neutral-200);
+  --color-text-tertiary: var(--neutral-400);
+  --border-radius-default: 0.25rem;
+  --border-radius-lg: 1.5rem;
+  --border-radius-full: 624.9375rem;
+  --font-font-family-data: Chathura;
+  --color-background-default: var(--neutral-950);
+  --color-background-lighter: var(--neutral-900);
+
+  --color-shadow-highlight: #ffffff59;
+  --color-shadow-shadow: #312e2926;
+
+  /* Component tokens */
+  --clickable-surface-default: linear-gradient(
+    116deg,
+    var(--neutral-800),
+    var(--neutral-850)
+  );
+  --clickable-surface-pressed: linear-gradient(
+    116deg,
+    var(--neutral-850),
+    var(--neutral-900)
+  );
+}
