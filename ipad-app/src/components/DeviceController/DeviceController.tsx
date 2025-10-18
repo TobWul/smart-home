@@ -8,14 +8,10 @@ import { rooms } from "./rooms";
 export const DeviceController = () => {
   const { devices, loading, toggleLight, setTargetTemperature } =
     useContext(HomeAssistantContext);
-  console.log(
-    devices["sensor.stue_sensor_temperature_temperature"]?.state,
-    devices["input_number.comfort_temperature"]?.state,
-  );
-
-  if (loading) return "loading...";
 
   if (Object.values(devices).length === 0) return "Error loading devices... ";
+
+  if (loading) return "loading...";
 
   return (
     <div>
@@ -36,6 +32,7 @@ export const DeviceController = () => {
           <LightToggleWrapper>
             {room.lights.map((light) => (
               <LightToggle
+                key={light}
                 name={light}
                 onClick={() => toggleLight(light)}
                 isPressed={devices[light]?.state === "on"}

@@ -19,7 +19,7 @@ export async function connect(callback: CallbackFunction) {
       // Redirect user to log in on their instance
       auth = await getAuth({ hassUrl });
     } else {
-      alert(`Unknown error: ${err}`);
+      console.error(`Unknown error: ${err}`);
       return;
     }
   }

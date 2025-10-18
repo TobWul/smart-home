@@ -1,0 +1,45 @@
+blueprint:
+  name: Oven Control
+  description: Control ovens based on target temperature
+  domain: automation
+  input:
+    temperature_sensor:
+      name: Temperature Sensor
+      description: The sensor providing the current room temperature.
+      selector:
+        entity:
+          domain: sensor
+    heating_switches:
+      name: Heating Switches
+      description: List of switches controlling the heating.
+      selector:
+        target:
+          entity:
+            domain: switch
+    desired_temp:
+      name: Desired Temperature Helper
+      description: Helper to dynamically set the target temperature.
+      selector:
+        entity:
+          domain: input_number
+
+trigger:
+  - platform: state
+    entity_id: !input temperature_sensor
+
+condition: []
+
+action:
+  - if:
+      - alias: "Temperature is above target"
+        condition: numeric_state
+        entity_id: !input temperature_sensor
+        above: !input desired_temp
+    then:
+      - alias: "Turn off Heating Switches"
+        service: switch.turn_off
+        target: !input heating_switches
+    else:
+      - alias: "Turn on Heating Switches"
+        service: switch.turn_on
+        target: !input heating_switches

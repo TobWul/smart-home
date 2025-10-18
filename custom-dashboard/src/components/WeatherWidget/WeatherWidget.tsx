@@ -1,15 +1,12 @@
-import { ReactElement } from "react";
-import classes from "./WeatherWidget.module.scss";
-import { WeatherData } from "../../types/weather";
+import { ReactElement } from 'react';
+import classes from './WeatherWidget.module.scss';
+import { useWeatherApi } from './useWeatherApi';
 
-export function WeatherWidget({
-  weather,
-}: {
-  weather: WeatherData[];
-}): ReactElement {
+export function WeatherWidget(): ReactElement {
+  const { data } = useWeatherApi();
   return (
     <div className={classes.wrapper}>
-      {weather.map((hourlyForecast) => (
+      {data.map(hourlyForecast => (
         <div className={classes.forecast} key={hourlyForecast.time}>
           <img
             src={`weather-icons/${hourlyForecast.weatherIcon}.svg`}
@@ -20,8 +17,8 @@ export function WeatherWidget({
           />
           <p>{Math.round(hourlyForecast.temperature)} °C</p>
           <p className={classes.date}>
-            {new Date(hourlyForecast.time).toLocaleDateString("no-nb", {
-              weekday: "short",
+            {new Date(hourlyForecast.time).toLocaleDateString('no-nb', {
+              weekday: 'short',
             })}
           </p>
         </div>

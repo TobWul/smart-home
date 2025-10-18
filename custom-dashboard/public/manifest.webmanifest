@@ -1,0 +1,25 @@
+{
+  "name": "ipad-app",
+  "short_name": "ipad-app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101214",
+  "lang": "en",
+  "scope": "/",
+  "description": "smart-home",
+  "theme_color": "#101214",
+  "orientation": "landscape",
+  "apple-mobile-web-app-capable": "yes",
+  "apple-mobile-web-app-status-bar-style": "black-translucent",
+  "icons": [
+    { "src": "pwa-64x64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "pwa-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "pwa-512x512.png", "sizes": "512x512", "type": "image/png" },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.wrapper {
+  $gap: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: $gap;
+  padding: $gap;
+  background: var(--neutral-950);
+  border-radius: var(--border-radius-default);
+  margin-top: 1rem;
+}

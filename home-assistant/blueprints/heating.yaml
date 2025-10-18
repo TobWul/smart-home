@@ -1,0 +1,109 @@
+blueprint:
+  name: Room Heating Control
+  description: Control heating per room based on schedules, persons, and temperature settings.
+  domain: automation
+  input:
+    temperature_sensor:
+      name: Temperature Sensor
+      description: The sensor providing the current room temperature.
+      selector:
+        entity:
+          domain: sensor
+    heating_switches:
+      name: Heating Switches
+      description: List of switches controlling the heating.
+      selector:
+        target:
+          entity:
+            domain: switch
+    comfort_temp:
+      name: Comfort Temperature
+      description: The desired temperature for comfort.
+      selector:
+        number:
+          min: 10
+          max: 30
+          unit_of_measurement: °C
+    eco_temp:
+      name: Eco Temperature
+      description: The desired temperature for eco mode.
+      selector:
+        number:
+          min: 10
+          max: 30
+          unit_of_measurement: °C
+    away_temp:
+      name: Away Temperature
+      description: The desired temperature for away mode.
+      selector:
+        number:
+          min: 10
+          max: 30
+          unit_of_measurement: °C
+    desired_temp:
+      name: Desired Temperature Helper
+      description: Helper to dynamically set the target temperature.
+      selector:
+        entity:
+          domain: input_number
+    default_schedule:
+      name: Default Schedule
+      description: The default heating schedule.
+      selector:
+        entity:
+          domain: schedule
+    home_office_schedule:
+      name: Home Office Schedule
+      description: The home office schedule (optional).
+      selector:
+        entity:
+          domain: schedule
+
+trigger:
+  - platform: state
+    entity_id: !input default_schedule
+  - platform: state
+    entity_id: !input home_office_schedule
+  - platform: state
+    entity_id: !input temperature_sensor
+
+condition: []
+
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: !input default_schedule
+            state: "on"
+        sequence:
+          - service: input_number.set_value
+            data:
+              value: !input comfort_temp
+            target:
+              entity_id: !input desired_temp
+      - conditions:
+          - condition: state
+            entity_id: !input default_schedule
+            state: "off"
+        sequence:
+          - service: input_number.set_value
+            data:
+              value: !input eco_temp
+            target:
+              entity_id: !input desired_temp
+  - choose:
+      - conditions:
+          - condition: numeric_state
+            entity_id: !input temperature_sensor
+            above: !input desired_temp
+        sequence:
+          - service: switch.turn_off
+            target: !input heating_switches
+      - conditions:
+          - condition: numeric_state
+            entity_id: !input temperature_sensor
+            above: !input desired_temp
+        sequence:
+          - service: switch.turn_on
+            target: !input heating_switches
+mode: single
